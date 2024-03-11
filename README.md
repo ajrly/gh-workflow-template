@@ -1,2 +1,2 @@
-# gh-workflow-template
+# GitHub workflow templates
 GitHub Actions reusable workflows templates
