@@ -1,0 +1,55 @@
+# env files
+.env*
+
+# compiled output
+dist
+build
+out-tsc
+out
+temp
+logs
+.cache
+.output
+.history
+
+# dependencies
+node_modules
+.pnp
+.pnp.js
+.pnpm-store
+.yarn/*
+
+# testing
+coverage
+test-results
+playwright*
+
+# misc
+.DS_Store
+Thumbs.db
+*.pem
+
+# debug
+*.lock*
+*.log*
+
+# typescript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# IDEs and editors
+.idea
+.project
+.classpath
+.c9
+*.launch
+.settings
+*.sublime-workspace
+
+# VSCode
+.vscode/*
+
+# vercel
+.vercel
+.now
+.turbo
