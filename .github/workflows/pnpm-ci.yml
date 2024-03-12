@@ -3,7 +3,7 @@ name: PNPM Build CI
 on:
   workflow_call:
     inputs:
-      NVMRC_PATH:
+      nvmrc-path:
         required: true
         type: string
 
@@ -17,10 +17,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: 📦 Use Node.js ${{ matrix.node-version }}
+      - name: 📦 Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: ${{ inputs.NVMRC_PATH }}
+          node-version-file: ${{ inputs.nvmrc-path }}
 
       - name: 📥 Install dependencies
         uses: ./.github/actions/pnpm-install
