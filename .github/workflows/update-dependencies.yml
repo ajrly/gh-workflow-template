@@ -3,7 +3,7 @@ name: Update dependencies
 on:
   workflow_call:
     inputs:
-      NVMRC_PATH:
+      nvmrc-path:
         required: true
         type: string
 
@@ -23,7 +23,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version-file: ${{ inputs.NVMRC_PATH }}
+          node-version-file: ${{ inputs.nvmrc-path }}
           cache: 'pnpm'
 
       - run: pnpm install
@@ -36,4 +36,4 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: 'ci: update dependencies to the latest version'
-          title: Update dependencies to the latest version
+          title: 'Update dependencies to the latest version'
