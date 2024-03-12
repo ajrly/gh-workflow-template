@@ -6,6 +6,9 @@ on:
       node-version:
         required: false
         type: string
+      nvmrc-path:
+        required: false
+        type: string
     secrets:
       token:
         required: false
@@ -24,7 +27,7 @@ jobs:
       - name: 📦 Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ${{ inputs.nvmrc-path }}
 
       - name: 📥 Install dependencies
         shell: bash
