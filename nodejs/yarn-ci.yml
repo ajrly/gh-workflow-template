@@ -1,10 +1,14 @@
-name: CI
+name: Yarn Build CI
 
 on:
-  push:
-    branches: [dev]
-  pull_request:
-    branches: [dev, main]
+  workflow_call:
+    inputs:
+      node-version:
+        required: false
+        type: string
+    secrets:
+      token:
+        required: false
 
 jobs:
   build:
