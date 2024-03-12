@@ -23,8 +23,7 @@ jobs:
           node-version-file: ${{ inputs.nvmrc-path }}
 
       - name: 📥 Install dependencies
-        shell: bash
-        run: yarn install --production
+        uses: ./.github/actions/yarn-install
 
       - name: 🏗️ Build
         run: yarn build
