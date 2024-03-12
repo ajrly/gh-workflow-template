@@ -2,10 +2,7 @@
 name: Cleanup Caches
 
 on:
-  pull_request:
-    types:
-      - closed # for Closed Branches
-  workflow_dispatch:
+  workflow_call:
 
 jobs:
   cleanup-caches:

@@ -1,29 +1,29 @@
-name: CI
+name: PNPM Build CI
 
 on:
-  push:
-    branches: [dev]
-  pull_request:
-    branches: [dev, main]
+  workflow_call:
+    inputs:
+      NVMRC_PATH:
+        required: true
+        type: string
 
 jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [20.x]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-    name: 🧩 Build with ${{ matrix.node-version }} for ${{ matrix.os }}
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+    name: 🧩 Build for ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v4
       - name: 📦 Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ${{ inputs.NVMRC_PATH }}
 
       - name: 📥 Install dependencies
-        uses: ./nodejs/actions/pnpm-install
+        uses: ./.github/actions/pnpm-install
 
       - name: 🏗️ Build
         run: pnpm build

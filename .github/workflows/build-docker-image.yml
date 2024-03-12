@@ -1,13 +1,17 @@
 name: Build Docker Image
 
 on:
-  push:
-    branches: ['dev']
+  workflow_call:
+    inputs:
+      IMAGE_NAME:
+        required: true
+        type: string
+      IMAGE_TAG:
+        required: true
+        type: string
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-  IMAGE_TAG: ${{ github.run_number }}
 
 jobs:
   build-and-push-image:

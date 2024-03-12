@@ -1,9 +1,11 @@
 name: Update dependencies
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 0 1 * *'
+  workflow_call:
+    inputs:
+      NVMRC_PATH:
+        required: true
+        type: string
 
 jobs:
   update:
@@ -21,7 +23,7 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ${{ inputs.NVMRC_PATH }}
           cache: 'pnpm'
 
       - run: pnpm install
