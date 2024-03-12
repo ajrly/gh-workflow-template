@@ -1,0 +1,34 @@
+name: Yarn Build CI
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: false
+        type: string
+    secrets:
+      token:
+        required: false
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [20.x]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    name: 🧩 Build with ${{ matrix.node-version }} for ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: 📦 Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: 📥 Install dependencies
+        shell: bash
+        run: yarn set version latest && yarn install --production --frozen-lockfile
+
+      - name: 🏗️ Build
+        run: yarn set version latest && yarn build
