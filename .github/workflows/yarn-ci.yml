@@ -23,7 +23,11 @@ jobs:
           node-version-file: ${{ inputs.nvmrc-path }}
 
       - name: 📥 Install dependencies
-        uses: ./.github/actions/yarn-install
+        shell: bash
+        run: yarn install --production --frozen-lockfile
+        env:
+          NODE_ENV: production
+          HUSKY: '0'
 
       - name: 🏗️ Build
         run: yarn build
