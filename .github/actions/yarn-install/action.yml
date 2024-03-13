@@ -113,7 +113,7 @@ runs:
     - name: 📥 Install dependencies
       shell: bash
       working-directory: ${{ inputs.cwd }}
-      run: yarn config set network-timeout 600000 -g && yarn install --immutable --inline-builds
+      run: yarn config set network-timeout 600000 -g && yarn install --production --frozen-lockfile --immutable --inline-builds
       env:
         NODE_ENV: production
         # Overrides/align yarnrc.yml options (v3, v4) for a CI context

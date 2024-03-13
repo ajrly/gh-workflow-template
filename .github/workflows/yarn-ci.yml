@@ -6,10 +6,6 @@ on:
       nvmrc-path:
         required: true
         type: string
-      cwd:
-        required: false
-        type: string
-        default: '.'
 
 env:
   NODE_ENV: production
