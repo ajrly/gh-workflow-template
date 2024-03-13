@@ -6,6 +6,9 @@ on:
       nvmrc-path:
         required: true
         type: string
+      cwd:
+        required: true
+        type: string
 
 env:
   NODE_ENV: production
@@ -28,6 +31,8 @@ jobs:
 
       - name: 📥 Install dependencies
         uses: ./.github/actions/yarn-install
+        with:
+          cwd: ${{ inputs.cwd }}
         # shell: bash
         # run: yarn install --production --frozen-lockfile
 
