@@ -9,6 +9,9 @@ on:
       image-tag:
         required: true
         type: string
+      user-password:
+        required: true
+        type: string
 
 env:
   REGISTRY: ghcr.io
@@ -29,7 +32,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_LOGIN }}
+          password: ${{ inputs.user-password }}
 
       - name: Extract metadata
         id: meta
