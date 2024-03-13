@@ -3,13 +3,9 @@ description: Run yarn install
 
 inputs:
   cwd:
+    description: Working directory
     required: false
-    type: string
     default: '.'
-
-env:
-  NODE_ENV: production
-  HUSKY: '0'
 
 runs:
   using: 'composite'
@@ -44,3 +40,6 @@ runs:
     - name: 📥 Install dependencies
       shell: bash
       run: yarn config set network-timeout 600000 -g && yarn install --production --frozen-lockfile
+      env:
+        NODE_ENV: production
+        HUSKY: '0'

@@ -30,7 +30,7 @@ jobs:
         with:
           node-version-file: ${{ inputs.nvmrc-path }}
 
-      - uses: ajrly/gh-workflow-template/.github/actions/yarn-install.yml@main
+      - uses: ajrly/gh-workflow-template/.github/actions/yarn-install@main
         with:
           cwd: ${{ inputs.cwd }}
         # shell: bash
