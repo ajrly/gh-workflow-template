@@ -4,17 +4,13 @@
 name: Install PNPM
 description: Run pnpm install
 
-env:
-  NODE_ENV: production
-  HUSKY: '0'
-
 runs:
   using: 'composite'
 
   steps:
     - uses: pnpm/action-setup@v3
 
-    - name: Expose pnpm config(s) through "$GITHUB_OUTPUT"
+    - name: ⚙️ Expose pnpm config(s) through "$GITHUB_OUTPUT"
       id: pnpm-config
       shell: bash
       run: |
@@ -44,3 +40,6 @@ runs:
     - name: 📥 Install dependencies
       shell: bash
       run: pnpm install --frozen-lockfile --strict-peer-dependencies --prefer-offline
+      env:
+        NODE_ENV: production
+        HUSKY: '0'

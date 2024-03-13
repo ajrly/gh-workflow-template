@@ -29,12 +29,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: ${{ inputs.nvmrc-path }}
+          cache: 'yarn'
 
       - uses: ajrly/gh-workflow-template/.github/actions/yarn-install@main
-        with:
-          cwd: ${{ inputs.cwd }}
-        # shell: bash
-        # run: yarn install --production --frozen-lockfile
 
       - name: 🏗️ Build
         run: yarn build

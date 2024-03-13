@@ -24,9 +24,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: ${{ inputs.nvmrc-path }}
+          cache: 'pnpm'
 
-      - name: 📥 Install dependencies
-        uses: ./.github/actions/pnpm-install
+      - uses: ajrly/gh-workflow-template/.github/actions/pnpm-install@main
 
       - name: 🏗️ Build
         run: pnpm build
