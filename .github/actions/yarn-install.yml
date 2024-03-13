@@ -1,12 +1,11 @@
 name: Install Yarn
 description: Run yarn install
 
-on:
-  workflow_call:
-    inputs:
-      cwd:
-        required: true
-        type: string
+inputs:
+  cwd:
+    required: false
+    type: string
+    default: '.'
 
 env:
   NODE_ENV: production

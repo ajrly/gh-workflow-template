@@ -7,8 +7,9 @@ on:
         required: true
         type: string
       cwd:
-        required: true
+        required: false
         type: string
+        default: '.'
 
 env:
   NODE_ENV: production
@@ -29,8 +30,7 @@ jobs:
         with:
           node-version-file: ${{ inputs.nvmrc-path }}
 
-      - name: 📥 Install dependencies
-        uses: ./.github/actions/yarn-install
+      - uses: ajrly/gh-workflow-template/.github/actions/yarn-install.yml@main
         with:
           cwd: ${{ inputs.cwd }}
         # shell: bash
