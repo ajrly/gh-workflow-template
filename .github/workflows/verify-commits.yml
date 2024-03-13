@@ -1,4 +1,4 @@
-name: Verify commits
+name: Verify Commits
 
 on:
   workflow_call:

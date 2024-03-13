@@ -4,6 +4,10 @@
 name: Install PNPM
 description: Run pnpm install
 
+env:
+  NODE_ENV: production
+  HUSKY: '0'
+
 runs:
   using: 'composite'
 
@@ -40,6 +44,3 @@ runs:
     - name: 📥 Install dependencies
       shell: bash
       run: pnpm install --frozen-lockfile --strict-peer-dependencies --prefer-offline
-      env:
-        # Other environment variables
-        HUSKY: '0' # By default do not run HUSKY install
