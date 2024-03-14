@@ -41,5 +41,4 @@ runs:
       shell: bash
       run: pnpm install --frozen-lockfile --strict-peer-dependencies --prefer-offline
       env:
-        NODE_ENV: production
         HUSKY: '0'
