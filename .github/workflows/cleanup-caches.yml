@@ -36,8 +36,8 @@ jobs:
           echo "Deleting caches..."
           for cacheKey in $cacheKeys
           do
-              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm
+              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --token ${{ secrets.GH_WF_PKG_TOKEN }} --confirm
           done
           echo "Done"
         env:
-          GH_TOKEN: ${{ secrets.GH_WF_PKG_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
