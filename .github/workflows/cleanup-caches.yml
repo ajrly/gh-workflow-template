@@ -10,7 +10,7 @@ on:
     types: [closed, reopened]
 
 env:
-  GH_TOKEN: ${{ secrets.GH_WF_PKG_TOKEN }}
+  PAT_TOKEN: ${{ secrets.GH_WF_PKG_TOKEN }}
 
 jobs:
   cleanup-caches:
@@ -39,7 +39,7 @@ jobs:
           echo "Deleting caches..."
           for cacheKey in $cacheKeys
           do
-              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --token $GH_TOKEN --confirm
+              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --token $PAT_TOKEN --confirm
           done
           echo "Done"
         env:
