@@ -4,7 +4,7 @@ on:
   workflow_call:
 
 jobs:
-  verify-pr:
+  commitlint:
     name: 💻 Verify commits
     runs-on: ubuntu-latest
 
@@ -13,5 +13,5 @@ jobs:
         with:
           fetch-depth: 0
       - if: github.event_name == 'pull_request'
-        name: Validate all commits from PR
+        name: Validate PR commits with commitlint
         run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
