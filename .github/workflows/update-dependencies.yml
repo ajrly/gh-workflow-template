@@ -33,4 +33,5 @@ jobs:
           commit-message: 'ci: update dependencies to the latest version'
           title: 'Update dependencies to the latest version'
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: '0'
