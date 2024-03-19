@@ -11,7 +11,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Cleanup
+      - name: 🧹 Cleanup
         run: |
           gh extension install actions/gh-actions-cache
 
