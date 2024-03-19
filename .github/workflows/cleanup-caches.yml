@@ -3,14 +3,15 @@ name: Cleanup Caches
 
 on:
   workflow_call:
+    inputs:
+      pat-token:
+        required: false
+        type: string
   push:
     branches:
       - dev
   pull_request:
     types: [closed, reopened]
-
-env:
-  PAT_TOKEN: ${{ secrets.GH_WF_PKG_TOKEN }}
 
 jobs:
   cleanup-caches:
@@ -43,4 +44,5 @@ jobs:
           done
           echo "Done"
         env:
+          PAT_TOKEN: ${{ secrets.GH_WF_PKG_TOKEN }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
