@@ -3,15 +3,6 @@ name: Cleanup Caches
 
 on:
   workflow_call:
-    inputs:
-      pat-token:
-        required: true
-        type: string
-  push:
-    branches:
-      - dev
-  pull_request:
-    types: [closed, reopened]
 
 jobs:
   cleanup-caches:
@@ -40,9 +31,9 @@ jobs:
           echo "Deleting caches..."
           for cacheKey in $cacheKeys
           do
-              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --token ${{ inputs.pat-token }} --confirm
+              gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --token $GH_TOKEN --confirm
           done
           echo "Done"
         env:
-          PAT_TOKEN: ${{ inputs.pat-token }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAT_TOKEN: ${{ secrets.GH_WF_PKG_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_WF_PKG_TOKEN }}
