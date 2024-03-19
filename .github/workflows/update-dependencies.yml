@@ -32,3 +32,5 @@ jobs:
         with:
           commit-message: 'ci: update dependencies to the latest version'
           title: 'Update dependencies to the latest version'
+        env:
+          HUSKY: '0'
