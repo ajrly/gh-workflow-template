@@ -1,0 +1,27 @@
+name: .NET Build CI
+
+on:
+  workflow_call:
+    inputs:
+      dotnet-version:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+    name: 🧩 Build for ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: 📦 Setup .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ inputs.dotnet-version }}
+      - name: 📥 Restore dependencies
+        run: dotnet restore
+      - name: 🏗️ Build
+        run: dotnet build --no-restore
