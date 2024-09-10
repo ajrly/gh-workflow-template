@@ -9,9 +9,6 @@ on:
       image-tag:
         required: true
         type: string
-      NEXTAUTH_SECRET:
-        required: false
-        type: string
 
 env:
   REGISTRY: ghcr.io
@@ -46,5 +43,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-        env:
-          NEXTAUTH_SECRET: ${{ inputs.NEXTAUTH_SECRET }}
