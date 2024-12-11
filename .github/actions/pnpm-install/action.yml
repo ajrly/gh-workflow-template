@@ -39,6 +39,6 @@ runs:
 
     - name: 📥 Install dependencies
       shell: bash
-      run: pnpm install --frozen-lockfile --strict-peer-dependencies --prefer-offline
+      run: pnpm install --no-frozen-lockfile --strict-peer-dependencies --prefer-offline
       env:
         HUSKY: '0'
