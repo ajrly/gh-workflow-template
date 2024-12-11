@@ -18,8 +18,7 @@ jobs:
         with:
           node-version-file: ${{ inputs.nvmrc-path }}
 
-      - name: Install dependencies
-        run: pnpm install
+      - uses: ajrly/gh-workflow-template/.github/actions/pnpm-install@main
 
       # Validate PR commits with commitlint
       - if: github.event_name == 'pull_request'
