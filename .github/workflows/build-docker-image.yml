@@ -64,6 +64,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          secrets: inherit
           build-args: ${{ inputs.build-args }}
 
       - name: Output build result
