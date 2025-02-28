@@ -25,6 +25,6 @@ jobs:
 
       - uses: ajrly/gh-workflow-template/.github/actions/pnpm-install@main
       - name: 🧹 Linting
-        run: pnpm lint:fix
+        run: pnpm lint:check
       - name: 🏗️ Build
         run: pnpm build
