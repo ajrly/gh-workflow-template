@@ -8,7 +8,7 @@ runs:
   using: 'composite'
 
   steps:
-    - uses: pnpm/action-setup@v3
+    - uses: pnpm/action-setup@v4
 
     - name: ⚙️ Expose pnpm config(s) through "$GITHUB_OUTPUT"
       id: pnpm-config
